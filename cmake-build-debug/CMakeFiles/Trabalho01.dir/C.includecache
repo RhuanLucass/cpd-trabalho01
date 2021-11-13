@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/rhuan/Desktop/Ceferno/C P Dados/Feitos/Trabalho01/main.c
+stdio.h
+-
+stdlib.h
+-
+time.h
+-
+
