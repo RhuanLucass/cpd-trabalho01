@@ -171,6 +171,8 @@ int main() {
     //bubbleSort(vet, n);
     //insertionSort(vet, n);
     //mergeSort(vet, n);
+    //selectionSort (vet, n);
+    //quickSort (vet, inicio, fim);
 
     clock_t end = clock(); //Tempo final
     double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;  //Calcula o tempo de execução
