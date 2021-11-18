@@ -82,6 +82,53 @@ void mergeSort(int array[], int length){
     }
 }
 
+void selectionSort (int array[], int length){
+    int min, temp;
+    for(int i = 0; i < length; i++){
+        min = i;
+        for (int j = i + 1; j < length; j++){
+            if (array[j] < array[min]){
+                min = j;
+            } 
+        }
+        if (array[i] != array[min]){
+            temp = array[i];
+            array[i] = array[min];
+            array [min] = temp;
+        }        
+    }  
+
+}
+
+void quickSort (int values[], int began, int end){
+    int i, j, pivo, temp;
+    i = began;
+    j = end-1;
+    pivo = values [began];
+    while (i <= j){
+        while (values[i] < pivo && i < end)
+            i++;
+        while (values[j] > pivo && j > began)
+            j--;
+        
+        if (i<=j){
+            temp = values[i];
+            values[i] = values[j];
+            values[j] = temp;
+            i++;
+            j--;
+        }
+    
+    }
+    if (j > began){
+        quickSort (values, began, j+1);
+    }
+    if (i < end){
+        quickSort (values, i, end);
+    }
+}
+    
+
 void randomInteger(int vet[], int n)
 {
     //Preenchendo o vetor com numeros aleatórios
