@@ -103,8 +103,8 @@ void selectionSort (int array[], int length){
 void quickSort (int values[], int began, int end){
     int i, j, pivo, temp;
     i = began;
-    j = end-1;
-    pivo = values [began];
+    j = end - 1;
+    pivo = values[began];
     while (i <= j){
         while (values[i] < pivo && i < end)
             i++;
@@ -144,25 +144,27 @@ void vetorCrescente(int vet[], int n){
 }
 
 void vetorDecrescente(int vet[], int n){
+    int j = 0;
     for(int i = n; i > 0; i--){
-        vet[i] = i;
+        vet[j] = i;
+        j++;
     }
 }
 
 int main() {
-    int n = 100000;
-    int vet[100000];
+    int n = 10000;
+    int vet[10000];
 
     //randomInteger(vet, n);
     //vetorCrescente(vet, n);
     vetorDecrescente(vet, n);
 
     //Imprimir na ordem gerada
-    /*for(int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++) {
         printf("%d", vet[i]);
         if (i < n-1)
             printf(", ");
-    }*/
+    }
     printf("\n\n");
     printf("\n\n");
 
@@ -170,8 +172,8 @@ int main() {
 
     //bubbleSort(vet, n);
     //selectionSort(vet, n);
-    insertionSort(vet, n);
-    //quickSort(vet, 0, n);
+    //insertionSort(vet, n);
+    //quickSort(vet, 1, n);
     //mergeSort(vet, n);
 
 
@@ -180,11 +182,11 @@ int main() {
 
 
     //Imprimir ordenada
-    for(int i = 0; i < n; i++){
+    /*for(int i = 0; i < n; i++){
         printf("%d", vet[i]);
         if (i < n-1)
             printf(", ");
-    }
+    }*/
 
     printf("\n\nTempo de execucao do algoritmo de ordenacao: %lf", time_spent);
     //system("pause");
