@@ -132,7 +132,7 @@ void quickSort (int values[], int began, int end){
 void randomInteger(int vet[], int n)
 {
     //Preenchendo o vetor com numeros aleatórios
-    for(int i = 0; i < n; i++){
+    for(int i = 0 ; i < n; i++){
         vet[i] = rand() % 10000;
     }
 }
@@ -152,12 +152,37 @@ void vetorDecrescente(int vet[], int n){
 }
 
 int main() {
-    int n = 100000;
-    int vet[100000];
+    int opc, opc2 = 1, n = 30000;
+    int vet[30000];
+    int vet2[30000];
+    int vet3[30000];
 
-    //randomInteger(vet, n);
-    //vetorCrescente(vet, n);
-    vetorDecrescente(vet, n);
+    printf("   ORDENACAO DE VETORES\n");
+    printf("Qual a ordem do vetor? (1-Aleatorio, 2-Crescente, 3-Decrescente)\n");
+    scanf("%d", &opc);
+    switch(opc){
+        case 1:
+            randomInteger(vet, n);
+            randomInteger(vet2, n);
+            randomInteger(vet3, n);
+            break;
+
+        case 2:
+            vetorCrescente(vet, n);
+            vetorCrescente(vet2, n);
+            vetorCrescente(vet3, n);
+            break;
+
+        case 3:
+            vetorDecrescente(vet, n);
+            vetorDecrescente(vet2, n);
+            vetorDecrescente(vet3, n);
+            break;
+
+        default:
+            printf("Valor invalido!!");
+    }
+
 
     //Imprimir na ordem gerada
     for(int i = 0; i < n; i++) {
@@ -166,29 +191,87 @@ int main() {
             printf(", ");
     }
     printf("\n\n");
-    printf("\n\n");
-
-    clock_t begin = clock(); //Tempo inicial
-
-    //bubbleSort(vet, n);
-    //selectionSort(vet, n);
-    //insertionSort(vet, n);
-    quickSort(vet, 1, n);
-    //mergeSort(vet, n);
-
-
-    clock_t end = clock(); //Tempo final
-    double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;  //Calcula o tempo de execução
-
-
-    //Imprimir ordenada
-    for(int i = 0; i < n; i++){
-        printf("%d", vet[i]);
+    for(int i = 0; i < n; i++) {
+        printf("%d", vet2[i]);
         if (i < n-1)
             printf(", ");
     }
+    printf("\n\n");
+    for(int i = 0; i < n; i++) {
+        printf("%d", vet3[i]);
+        if (i < n-1)
+            printf(", ");
+    }
+    printf("\n\n");
+    printf("\n\n");
 
-    printf("\n\nTempo de execucao do algoritmo de ordenacao: %lf", time_spent);
+    while(opc2 !=0) {
+        printf("Qual algoritmo de ordenacao usar? (1-Bubble, 2-Selection, 3-Insertion, 4-Quick, 5-Merge, 0-Sair)\n");
+        scanf("%d", &opc2);
+        if(opc2 == 0)
+            break;
+        clock_t begin = clock(); //Tempo inicial
+
+        switch (opc2) {
+            case 1:
+                bubbleSort(vet, n);
+                bubbleSort(vet2, n);
+                bubbleSort(vet3, n);
+                break;
+
+            case 2:
+                selectionSort(vet, n);
+                selectionSort(vet2, n);
+                selectionSort(vet3, n);
+                break;
+
+            case 3:
+                insertionSort(vet, n);
+                insertionSort(vet2, n);
+                insertionSort(vet3, n);
+                break;
+
+            case 4:
+                quickSort(vet, 0, n);
+                quickSort(vet2, 0, n);
+                quickSort(vet3, 0, n);
+                break;
+
+            case 5:
+                mergeSort(vet, n);
+                mergeSort(vet2, n);
+                mergeSort(vet3, n);
+                break;
+
+            default:
+                printf("Valor invalido!!");
+        }
+
+        clock_t end = clock(); //Tempo final
+        double time_spent = (double) (end - begin) / CLOCKS_PER_SEC;  //Calcula o tempo de execução
+
+
+        //Imprimir ordenada
+        for (int i = 0; i < n; i++) {
+            printf("%d", vet[i]);
+            if (i < n - 1)
+                printf(", ");
+        }
+        printf("\n\n");
+        for (int i = 0; i < n; i++) {
+            printf("%d", vet2[i]);
+            if (i < n - 1)
+                printf(", ");
+        }
+        printf("\n\n");
+        for (int i = 0; i < n; i++) {
+            printf("%d", vet3[i]);
+            if (i < n - 1)
+                printf(", ");
+        }
+
+        printf("\n\nTempo de execucao do algoritmo de ordenacao: %lf\n\n", time_spent);
+    }
     //system("pause");
     return 0;
 }
