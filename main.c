@@ -152,8 +152,8 @@ void vetorDecrescente(int vet[], int n){
 }
 
 int main() {
-    int n = 10000;
-    int vet[10000];
+    int n = 100000;
+    int vet[100000];
 
     //randomInteger(vet, n);
     //vetorCrescente(vet, n);
@@ -173,7 +173,7 @@ int main() {
     //bubbleSort(vet, n);
     //selectionSort(vet, n);
     //insertionSort(vet, n);
-    //quickSort(vet, 1, n);
+    quickSort(vet, 1, n);
     //mergeSort(vet, n);
 
 
@@ -182,11 +182,11 @@ int main() {
 
 
     //Imprimir ordenada
-    /*for(int i = 0; i < n; i++){
+    for(int i = 0; i < n; i++){
         printf("%d", vet[i]);
         if (i < n-1)
             printf(", ");
-    }*/
+    }
 
     printf("\n\nTempo de execucao do algoritmo de ordenacao: %lf", time_spent);
     //system("pause");
