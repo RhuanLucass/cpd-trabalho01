@@ -13,11 +13,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d24bc257-490c-4efb-a98a-f93db303a10d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho01.dir/main.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho01.dir/main.c.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho01.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Trabalho01.dir/objects.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trabalho 1.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Trabalho 1.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Trabalho01.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Trabalho01.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +71,8 @@
       <workItem from="1637755001026" duration="943000" />
       <workItem from="1637757431527" duration="8015000" />
       <workItem from="1637846257625" duration="2135000" />
-      <workItem from="1637865238026" duration="9594000" />
+      <workItem from="1637865238026" duration="9816000" />
+      <workItem from="1637878451047" duration="7000" />
     </task>
     <servers />
   </component>
