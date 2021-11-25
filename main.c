@@ -165,7 +165,7 @@ void randomInteger(int vet[], int n)
 {
     //Preenchendo o vetor com numeros aleatórios
     for(int i = 0 ; i < n; i++){
-        vet[i] = rand() % 30000;
+        vet[i] = rand() % 25000;
     }
 }
 
@@ -184,8 +184,8 @@ void vetorDecrescente(int vet[], int n){
 }
 
 int main() {
-    int opc, opc2 = 1, n = 30000;
-    int vet[30000], vet2[30000], vet3[30000], vetaux[30000],vetaux2[30000], vetaux3[30000];
+    int opc, opc2 = 1, n = 25000;
+    int vet[25000], vet2[25000], vet3[25000], vet4[25000], vetaux[25000],vetaux2[25000], vetaux3[25000], vetaux4[25000];
 
     printf("   ORDENACAO DE VETORES\n");
     printf("Qual a ordem do vetor? (1-Aleatorio, 2-Crescente, 3-Decrescente)\n");
@@ -195,18 +195,21 @@ int main() {
             randomInteger(vet, n);
             randomInteger(vet2, n);
             randomInteger(vet3, n);
+            randomInteger(vet4, n);
             break;
 
         case 2:
             vetorCrescente(vet, n);
             vetorCrescente(vet2, n);
             vetorCrescente(vet3, n);
+            vetorCrescente(vet4, n);
             break;
 
         case 3:
             vetorDecrescente(vet, n);
             vetorDecrescente(vet2, n);
             vetorDecrescente(vet3, n);
+            vetorDecrescente(vet4, n);
             break;
 
         default:
@@ -232,18 +235,27 @@ int main() {
             printf(", ");
     }
     printf("\n\n");
+    for(int i = 0; i < n; i++) {
+        printf("%d", vet4[i]);
+        if (i < n-1)
+            printf(", ");
+    }
+    printf("\n\n");
     printf("\n\n");
 
     while(opc2 !=0) {
         //Copiando vetores originais para auxiliares
-        for(int i = 0; i < 30000; i++){
+        for(int i = 0; i < 25000; i++){
             vetaux[i] = vet[i];
         }
-        for(int i = 0; i < 30000; i++){
+        for(int i = 0; i < 25000; i++){
             vetaux2[i] = vet2[i];
         }
-        for(int i = 0; i < 30000; i++){
+        for(int i = 0; i < 25000; i++){
             vetaux3[i] = vet3[i];
+        }
+        for(int i = 0; i < 25000; i++){
+            vetaux4[i] = vet4[i];
         }
 
         printf("Qual algoritmo de ordenacao usar? (1-Bubble, 2-Selection, 3-Insertion, 4-Quick, 5-Merge, 6-Heap, 0-Sair)\n");
@@ -258,36 +270,42 @@ int main() {
                 bubbleSort(vetaux, n);
                 bubbleSort(vetaux2, n);
                 bubbleSort(vetaux3, n);
+                bubbleSort(vetaux4, n);
                 break;
 
             case 2:
                 selectionSort(vetaux, n);
                 selectionSort(vetaux2, n);
                 selectionSort(vetaux3, n);
+                selectionSort(vetaux4, n);
                 break;
 
             case 3:
                 insertionSort(vetaux, n);
                 insertionSort(vetaux2, n);
                 insertionSort(vetaux3, n);
+                insertionSort(vetaux4, n);
                 break;
 
             case 4:
                 quickSort(vetaux, 0, n);
                 quickSort(vetaux2, 0, n);
                 quickSort(vetaux3, 0, n);
+                quickSort(vetaux4, 0, n);
                 break;
 
             case 5:
                 mergeSort(vetaux, n);
                 mergeSort(vetaux2, n);
                 mergeSort(vetaux3, n);
+                mergeSort(vetaux4, n);
                 break;
             
             case 6:
                 heapSort(vetaux, n);
                 heapSort(vetaux2, n);
                 heapSort(vetaux3, n);
+                heapSort(vetaux4, n);
                 break;
 
             default:
@@ -313,6 +331,12 @@ int main() {
         printf("\n\n");
         for (int i = 0; i < n; i++) {
             printf("%d", vetaux3[i]);
+            if (i < n - 1)
+                printf(", ");
+        }
+        printf("\n\n");
+        for (int i = 0; i < n; i++) {
+            printf("%d", vetaux4[i]);
             if (i < n - 1)
                 printf(", ");
         }
