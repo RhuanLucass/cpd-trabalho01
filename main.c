@@ -127,7 +127,43 @@ void quickSort (int values[], int began, int end){
         quickSort (values, i, end);
     }
 }
-    
+
+void troca (int a, int b){
+    int t = a;
+    a = b;
+    b = t;
+}
+
+void constroiHeap (int array[], int length){
+    for (int k = 1; k < length; k++){
+        int f = k + 1;
+        while (f > 1 && array[f/2] < array[f]){
+            troca (array[f/2], array[f]);
+            f /= 2;
+        }
+    }
+}
+
+void peneira (int array[], int length){
+    int p = 1, f = 2, x = array[1];
+    while (f <= length){
+        if(f < length && array[f] < array[f+1])
+            ++f;
+        if(x >= array[f])
+        break;
+        array[p] = array[f];
+        p = f, f = 2*p;
+    }
+    array[p] = x;
+}
+
+void heapSort(int array[], int length){
+    constroiHeap(array, length);
+    for (int m = length; m >= 2; --m){
+        troca (array[1], array[m]);
+        peneira(array, m-1);
+    }
+}
 
 void randomInteger(int vet[], int n)
 {
@@ -206,7 +242,7 @@ int main() {
     printf("\n\n");
 
     while(opc2 !=0) {
-        printf("Qual algoritmo de ordenacao usar? (1-Bubble, 2-Selection, 3-Insertion, 4-Quick, 5-Merge, 0-Sair)\n");
+        printf("Qual algoritmo de ordenacao usar? (1-Bubble, 2-Selection, 3-Insertion, 4-Quick, 5-Merge, 6-Heap, 0-Sair)\n");
         scanf("%d", &opc2);
         if(opc2 == 0)
             break;
@@ -241,6 +277,12 @@ int main() {
                 mergeSort(vet, n);
                 mergeSort(vet2, n);
                 mergeSort(vet3, n);
+                break;
+            
+            case 6:
+                heapSort(vet, n);
+                heapSort(vet2, n);
+                heapSort(vet3, n);
                 break;
 
             default:
