@@ -128,40 +128,36 @@ void quickSort (int values[], int began, int end){
     }
 }
 
-void troca (int a, int b){
-    int t = a;
-    a = b;
-    b = t;
-}
-
-void constroiHeap (int array[], int length){
-    for (int k = 1; k < length; k++){
-        int f = k + 1;
-        while (f > 1 && array[f/2] < array[f]){
-            troca (array[f/2], array[f]);
-            f /= 2;
+void criaHeap(int array[], int i, int f){
+    int temp = array[i];
+    int j = i * 2 + 1;
+    while (j <= f){
+        if (j < f){
+            if (array[j] < array[j+1]){
+                j = j + 1;
+            }
+        }
+        if (temp < array[j]){
+            array[i] = array[j];
+            i = j;
+            j = 2 * i + 1;
+        }else{
+            j = f + 1;
         }
     }
-}
-
-void peneira (int array[], int length){
-    int p = 1, f = 2, x = array[1];
-    while (f <= length){
-        if(f < length && array[f] < array[f+1])
-            ++f;
-        if(x >= array[f])
-        break;
-        array[p] = array[f];
-        p = f, f = 2*p;
-    }
-    array[p] = x;
+    array[i] = temp;
 }
 
 void heapSort(int array[], int length){
-    constroiHeap(array, length);
-    for (int m = length; m >= 2; --m){
-        troca (array[1], array[m]);
-        peneira(array, m-1);
+    int i, temp;
+    for(i = (length - 1)/2; i >= 0; i--){
+         criaHeap(array, i, length);
+    }
+    for(i = length - 1; i >= 1; i--){
+        temp = array[0];
+        array[0] = array[i];
+        array[i] = temp;
+        criaHeap(array, 0, i-1);
     }
 }
 
