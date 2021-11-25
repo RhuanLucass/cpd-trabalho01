@@ -169,7 +169,7 @@ void randomInteger(int vet[], int n)
 {
     //Preenchendo o vetor com numeros aleatórios
     for(int i = 0 ; i < n; i++){
-        vet[i] = rand() % 10000;
+        vet[i] = rand() % 30000;
     }
 }
 
@@ -189,9 +189,7 @@ void vetorDecrescente(int vet[], int n){
 
 int main() {
     int opc, opc2 = 1, n = 30000;
-    int vet[30000];
-    int vet2[30000];
-    int vet3[30000];
+    int vet[30000], vet2[30000], vet3[30000], vetaux[30000],vetaux2[30000], vetaux3[30000];
 
     printf("   ORDENACAO DE VETORES\n");
     printf("Qual a ordem do vetor? (1-Aleatorio, 2-Crescente, 3-Decrescente)\n");
@@ -219,7 +217,6 @@ int main() {
             printf("Valor invalido!!");
     }
 
-
     //Imprimir na ordem gerada
     for(int i = 0; i < n; i++) {
         printf("%d", vet[i]);
@@ -242,47 +239,59 @@ int main() {
     printf("\n\n");
 
     while(opc2 !=0) {
+        //Copiando vetores originais para auxiliares
+        for(int i = 0; i < 30000; i++){
+            vetaux[i] = vet[i];
+        }
+        for(int i = 0; i < 30000; i++){
+            vetaux2[i] = vet2[i];
+        }
+        for(int i = 0; i < 30000; i++){
+            vetaux3[i] = vet3[i];
+        }
+
         printf("Qual algoritmo de ordenacao usar? (1-Bubble, 2-Selection, 3-Insertion, 4-Quick, 5-Merge, 6-Heap, 0-Sair)\n");
         scanf("%d", &opc2);
         if(opc2 == 0)
             break;
+
         clock_t begin = clock(); //Tempo inicial
 
         switch (opc2) {
             case 1:
-                bubbleSort(vet, n);
-                bubbleSort(vet2, n);
-                bubbleSort(vet3, n);
+                bubbleSort(vetaux, n);
+                bubbleSort(vetaux2, n);
+                bubbleSort(vetaux3, n);
                 break;
 
             case 2:
-                selectionSort(vet, n);
-                selectionSort(vet2, n);
-                selectionSort(vet3, n);
+                selectionSort(vetaux, n);
+                selectionSort(vetaux2, n);
+                selectionSort(vetaux3, n);
                 break;
 
             case 3:
-                insertionSort(vet, n);
-                insertionSort(vet2, n);
-                insertionSort(vet3, n);
+                insertionSort(vetaux, n);
+                insertionSort(vetaux2, n);
+                insertionSort(vetaux3, n);
                 break;
 
             case 4:
-                quickSort(vet, 0, n);
-                quickSort(vet2, 0, n);
-                quickSort(vet3, 0, n);
+                quickSort(vetaux, 0, n);
+                quickSort(vetaux2, 0, n);
+                quickSort(vetaux3, 0, n);
                 break;
 
             case 5:
-                mergeSort(vet, n);
-                mergeSort(vet2, n);
-                mergeSort(vet3, n);
+                mergeSort(vetaux, n);
+                mergeSort(vetaux2, n);
+                mergeSort(vetaux3, n);
                 break;
             
             case 6:
-                heapSort(vet, n);
-                heapSort(vet2, n);
-                heapSort(vet3, n);
+                heapSort(vetaux, n);
+                heapSort(vetaux2, n);
+                heapSort(vetaux3, n);
                 break;
 
             default:
@@ -295,19 +304,19 @@ int main() {
 
         //Imprimir ordenada
         for (int i = 0; i < n; i++) {
-            printf("%d", vet[i]);
+            printf("%d", vetaux[i]);
             if (i < n - 1)
                 printf(", ");
         }
         printf("\n\n");
         for (int i = 0; i < n; i++) {
-            printf("%d", vet2[i]);
+            printf("%d", vetaux2[i]);
             if (i < n - 1)
                 printf(", ");
         }
         printf("\n\n");
         for (int i = 0; i < n; i++) {
-            printf("%d", vet3[i]);
+            printf("%d", vetaux3[i]);
             if (i < n - 1)
                 printf(", ");
         }
